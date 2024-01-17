@@ -1,27 +1,26 @@
 <div class="container">
-    <input [(ngModel)]="text" type="text" />
-    <button mat-button (click)="onSubmit()">Ler</button>
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Mat</th>
-          <th>Nome</th>
-          <th>Nota 1</th>
-          <th>Nota 2</th>
-          <th>Nota Final</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of array; index as i">
-          <td>{{i}}</td>
-          <td>{{item.mat}}</td>
-          <td>{{item.nome}}</td>
-          <td>{{item.not1}}</td>
-          <td>{{item.not2}}</td>
-          <td>{{item.notF}}</td>
-        </tr>
-      </tbody>
-     
-    </table>
+  <input [(ngModel)]="text" type="text" />
+  <button mat-button (click)="onSubmit()">Ler</button>
+  <p-table [value]="array" [scrollable]="true" scrollHeight="80vh" styleClass="mt-3">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>#</th>
+        <th>Mat</th>
+        <th>Nome</th>
+        <th>Nota 1</th>
+        <th>Nota 2</th>
+        <th>Nota Final</th>
+      </tr>
+    </ng-template>
+    <ng-template let-item pTemplate="body" let-rowIndex="rowIndex">
+      <tr>
+        <td>{{ rowIndex }}</td>
+        <td>{{ item.mat }}</td>
+        <td>{{ item.nome }}</td>
+        <td>{{ item.not1 }}</td>
+        <td>{{ item.not2 }}</td>
+        <td>{{ item.notF }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>

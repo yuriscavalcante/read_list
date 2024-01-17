@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    TableModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -38,8 +40,6 @@ export class AppComponent {
         notF: Number(text.split(',')[4]),
       });
     });
-   this.array = this.array.sort((a, b) => b.notF - a.notF).slice(0, 4499)
-   console.log(this.array)
-
+    this.array = this.array.sort((a, b) => b.notF - a.notF).slice(0, 4499);
   }
 }
